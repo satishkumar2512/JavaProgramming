@@ -1,0 +1,49 @@
+public class Pants extends Product implements Discountable
+{
+    private int waist;
+    public Pants(int waist,double price,String color,String brand)
+    {
+        super(price,color,brand);
+        this.waist=waist;
+    }
+    public Pants(Pants source)
+    {
+        super(source);
+        this.waist=source.waist;
+    }
+    public int getWaist()
+    {
+        return this.waist;
+    }
+    public void setWaist(int waist)
+    {
+        this.waist=waist;
+    }
+
+    @Override
+    public String toString()
+    {
+        return "{"+"size='"+this.getWaist()+"'"+
+                "price='"+super.getPrice()+"'"+
+                "color='"+super.getColor()+"'"+
+                "brand='"+super.getBrand()+"'"+
+                "}";
+    }
+
+    /*
+    @Override
+    public void fold() {
+        System.out.println("Hold pants Alright");
+        System.out.println("Fold onr leg over the other");
+        System.out.println("Fold pants bottom in thirds");
+
+    }
+
+     */
+
+    @Override
+    public void discount()
+    {
+        super.setPrice(super.getPrice()/2);
+    }
+}
